@@ -28,15 +28,45 @@ const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
     />
     <div class="shell hero-copy">
       <p class="eyebrow">初学者向けガイド</p>
-      <h1>Re:VIEW 原稿リポジトリで迷う前に、読む順番を決める。</h1>
+      <h1>はじめての Re:VIEW 原稿でも、最初の 1 章を書き始められる。</h1>
       <p class="hero-text">
-        まず全体像をつかみ、そのあと記法、設定、差し戻し対処へ進む構成です。
-        章ごとに分割した本文をそのまま公開しているので、読みながら改善点を詰められます。
+        原稿の置き場所、最小限の `config.yml` と `catalog.yml`、避けたい記法、差し戻しの直し方まで、
+        迷いやすい順にまとめています。書きながらすぐ確認できるように、章ごとに分けて公開しています。
       </p>
       <div class="hero-actions">
         <a class="button-primary" href={chapterPath(chapters[0].id)}>最初の章へ</a>
         <a class="button-secondary" href={`${base}sources/`}>根拠を見る</a>
       </div>
+    </div>
+  </section>
+
+  <section class="shell section-spacing route-section">
+    <div class="section-heading">
+      <p class="eyebrow">最初の一歩</p>
+      <h2>最小構成で書き始める</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>1. 章ファイルを 1 つ作る</h3>
+        <p>
+          まずは短い 1 章だけを書きます。最初から本全体を書こうとせず、見出し、本文、箇条書きが通るかを確かめます。
+        </p>
+        <a href={chapterPath("00-start-here.md")}>はじめにを見る</a>
+      </article>
+      <article class="info-card">
+        <h3>2. 最小限の設定を書く</h3>
+        <p>
+          `config.yml` と `catalog.yml` は最小限で十分です。まずは「本の題名」と「どの章を読むか」だけを通します。
+        </p>
+        <a href={chapterPath("04-config-and-catalog.md")}>設定例を見る</a>
+      </article>
+      <article class="info-card">
+        <h3>3. NG 記法を先に避ける</h3>
+        <p>
+          Nextpublishing 固有の差し戻しは、あとでまとめて直すより先に避けたほうが楽です。よくある NG を先に確認できます。
+        </p>
+        <a href={chapterPath("05-nextpublishing-policy.md")}>NG 記法を見る</a>
+      </article>
     </div>
   </section>
 
