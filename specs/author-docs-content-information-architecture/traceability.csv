@@ -1,6 +1,8 @@
 req_id,acceptance_criterion,design_ref,task_ids,status,evidence
-RAD-005-AC1,"primary audience と journey を定義する","design.md#primary-audiences","RAD-005-T01",todo,"specs/author-docs-content-information-architecture/design.md"
-RAD-005-AC2,"top navigation と landing structure を定義する","design.md#top-navigation|design.md#landing-structure","RAD-005-T02",todo,"specs/author-docs-content-information-architecture/design.md"
-RAD-005-AC3,"page family contract を定義する","design.md#page-family-contract","RAD-005-T03",todo,"specs/author-docs-content-information-architecture/design.md"
-RAD-005-AC4,"site-to-book mapping を定義する","design.md#site-to-book-mapping","RAD-005-T04",todo,"specs/author-docs-content-information-architecture/design.md"
-RAD-005-AC5,"最低限の entry policy を定義する","design.md#landing-structure","RAD-005-T02|RAD-005-T03",todo,"specs/author-docs-content-information-architecture/design.md"
+RAD-005-AC1,"primary audience と journey を定義する","design.md#primary-audiences","RAD-005-T01",drafted,"specs/author-docs-content-information-architecture/design.md"
+RAD-005-AC2,"top navigation と landing structure を定義する","design.md#top-navigation|design.md#landing-structure","RAD-005-T02",drafted,"specs/author-docs-content-information-architecture/design.md"
+RAD-005-AC3,"page family contract を定義する","design.md#page-family-contract","RAD-005-T03",drafted,"specs/author-docs-content-information-architecture/design.md"
+RAD-005-AC4,"site-to-book mapping を定義する","design.md#site-to-book-mapping","RAD-005-T04",drafted,"specs/author-docs-content-information-architecture/design.md"
+RAD-005-AC5,"最低限の entry policy を定義する","design.md#landing-structure","RAD-005-T02|RAD-005-T03",drafted,"specs/author-docs-content-information-architecture/design.md"
+RAD-005-AC6,"evidence base を design に残す","design.md#evidence-base","RAD-005-T00",done,"specs/author-docs-content-information-architecture/design.md"
+RAD-005-AC7,"章 -> 中見出し -> 小見出しの叩き台を作る","design.md#draft-content-outline","RAD-005-T00A|RAD-005-T00B",done,"specs/author-docs-content-information-architecture/design.md"

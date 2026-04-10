@@ -4,23 +4,36 @@ status: active
 owners:
   - codex
 phases:
+  - id: P0
+    title: evidence-based-outline-draft
+    goal: author repo corpus と公式 Re:VIEW 文書を根拠に、章 -> 中見出し -> 小見出しの叩き台を作る
+    tasks:
+      - id: RAD-005-T00
+        title: evidence base を整理する
+        status: done
+      - id: RAD-005-T00A
+        title: 章レベルの共通 content spine を叩き台化する
+        status: done
+      - id: RAD-005-T00B
+        title: 中見出しと小見出しへ順次分解する
+        status: done
   - id: P1
     title: audience-and-navigation
     goal: audience journey と top navigation を固定する
     tasks:
       - id: RAD-005-T01
-        title: audience segmentation を確定する
+        title: audience segmentation をレビューで確定する
         status: todo
       - id: RAD-005-T02
-        title: top navigation と landing structure を確定する
+        title: top navigation と landing structure をレビューで確定する
         status: todo
   - id: P2
     title: page-family-and-book-mapping
     goal: page family contract と書籍派生 mapping を固定する
     tasks:
       - id: RAD-005-T03
-        title: page family metadata contract を確定する
+        title: page family metadata contract をレビューで確定する
         status: todo
       - id: RAD-005-T04
-        title: site-to-book mapping を確定する
+        title: site-to-book mapping をレビューで確定する
         status: todo
