@@ -1,0 +1,96 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  authorityGroups,
+  featuredRoutes,
+  heroImages,
+  siteDescription,
+  siteTitle
+} from "../lib/site-data";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const chapters = (await getCollection("chapters")).sort(
+  (left, right) => left.data.order - right.data.order
+);
+const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
+---
+
+<BaseLayout title={siteTitle} description={siteDescription}>
+  <section class="hero hero-grid">
+    <img
+      class="hero-image"
+      src={heroImages.home}
+      alt="本とノートが並ぶ執筆机"
+      loading="eager"
+    />
+    <div class="shell hero-copy">
+      <p class="eyebrow">Beginner-first docs hub</p>
+      <h1>Re:VIEW 原稿 repo で迷う前に、読む順番を決める。</h1>
+      <p class="hero-text">
+        まず全体像をつかみ、そのあと記法、設定、差し戻し対処へ進む構成です。
+        章ごとに分割した本文をそのまま公開しているので、読みながら改善点を詰められます。
+      </p>
+      <div class="hero-actions">
+        <a class="button-primary" href={chapterPath(chapters[0].id)}>最初の章へ</a>
+        <a class="button-secondary" href={`${base}sources/`}>根拠を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell section-spacing route-section">
+    <div class="section-heading">
+      <p class="eyebrow">3 routes</p>
+      <h2>いまの目的から入る</h2>
+    </div>
+    <div class="card-grid">
+      {featuredRoutes.map((route) => (
+        <article class="info-card">
+          <h3>{route.title}</h3>
+          <p>{route.description}</p>
+          <a href={`${base}chapters/${route.chapterSlug}/`}>この読み順を開く</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell section-spacing chapter-section">
+    <div class="section-heading">
+      <p class="eyebrow">Chapters</p>
+      <h2>章ごとに読む</h2>
+    </div>
+    <div class="chapter-list">
+      {chapters.map((chapter) => (
+        <article class="chapter-card">
+          <div class="chapter-order">{String(chapter.data.order + 1).padStart(2, "0")}</div>
+          <div>
+            <h3>
+              <a href={chapterPath(chapter.id)}>{chapter.data.title}</a>
+            </h3>
+            <p>{chapter.data.summary}</p>
+            <ul class="tag-list" aria-label="Audience">
+              {chapter.data.audience.map((audience) => <li>{audience}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell section-spacing authority-section">
+    <div class="section-heading">
+      <p class="eyebrow">Authority mix</p>
+      <h2>どの根拠で説明しているか</h2>
+    </div>
+    <div class="card-grid">
+      {authorityGroups.map((group) => (
+        <article class="info-card">
+          <h3>{group.title}</h3>
+          <p>{group.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

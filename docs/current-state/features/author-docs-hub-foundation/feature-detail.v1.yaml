@@ -2,12 +2,13 @@ metadata:
   feature_id: author-docs-hub-foundation
   version: 1
   status: active
-  implementation_state: spec_defined
+  implementation_state: partially_implemented
   confidence: high
 purpose:
   summary: >
     Foundation feature that fixes the repository responsibility, directory contract,
-    delivery strategy, and generation-pipeline shape for the derived author docs hub.
+    delivery strategy, and generation-pipeline shape for the derived author docs hub,
+    now including an authored beginner-friendly chapter set and Astro publication shell.
   operator_value: >
     Gives the next AI or maintainer a stable working unit for why this repository
     exists, which upstreams it depends on, and how future implementation must be
@@ -33,11 +34,19 @@ entry_surfaces:
     - specs/author-docs-content-information-architecture/tasks.yaml
     - specs/author-docs-diagnostics-parity/tasks.yaml
     - specs/author-docs-source-map-immutability/tasks.yaml
+    - specs/author-docs-chapter-authoring/tasks.yaml
+    - specs/author-docs-site-publication/tasks.yaml
+    - package.json
+    - astro.config.mjs
+    - src/pages/index.astro
+    - src/pages/chapters/[slug].astro
+    - .github/workflows/deploy.yml
   validation_commands:
     - python scripts/validate_current_state_docs.py --repo-root . --mode all
+    - npm run build
 implementation_variants:
   current_mode:
-    description: spec-defined repository contract before ingest/generation implementation exists
+    description: authored chapter Markdown and Astro site shell exist, while ingest/parity/source-map automation remains future work
     status: active
   future_mode:
     description: Astro-backed generated author-docs pipeline with upstream ingest, normalization, HTML build, and derivative artifact publishing
@@ -77,6 +86,17 @@ contracts_and_payloads:
     default_url: https://irdtechbook.github.io/review-author-docs/
     deployment_surface: dist/html
     deployment_record: docs/adr/ADR-0003-github-pages-publication-target.md
+    workflow_file: .github/workflows/deploy.yml
+  chapter_authoring_contract:
+    content_root: src/content/chapters
+    rendering_surface:
+      - src/pages/index.astro
+      - src/pages/chapters/[slug].astro
+      - src/pages/sources.astro
+    content_shape:
+      - chapter-level Markdown files
+      - beginner-oriented prose
+      - lists, tables, code examples, and Mermaid diagrams
   directory_contract:
     authored_docs:
       - docs/spec
@@ -144,12 +164,12 @@ execution_phases:
   - phase_id: source-map-and-generated-immutability
     summary: future work will define provenance metadata, source maps, and no-hand-edit validation for generated outputs
   - phase_id: generation-and-site
-    summary: future work will build the generator, validation lane, and HTML-first publication surface
+    summary: Astro chapter site and Pages workflow now exist; future work will add upstream ingest, parity checks, and source-map automation
 test_and_verification:
   known_checks:
     - python scripts/validate_current_state_docs.py --repo-root . --mode all
+    - npm run build
   missing_checks:
-    - No docs-generation pipeline validation exists yet.
     - No upstream parity or source-map completeness checker exists yet.
 confidence_and_gaps:
   evidence:
@@ -166,6 +186,7 @@ confidence_and_gaps:
     - What is the exact lock granularity for TECHZIP evidence inputs?
     - Should Astro search/navigation rely on a local prebuilt index or an external search integration?
     - Should the published site expose Start Here as one page or split it by audience?
+    - Should chapter pages eventually receive page-level provenance metadata instead of chapter-end source notes?
 related_documents:
   - AGENTS.md
   - specs/author-docs-hub-foundation/requirements.md
@@ -173,3 +194,5 @@ related_documents:
   - docs/adr/ADR-0001-derived-author-docs-hub.md
   - docs/adr/ADR-0002-astro-static-site-generator.md
   - docs/adr/ADR-0003-github-pages-publication-target.md
+  - specs/author-docs-chapter-authoring/requirements.md
+  - specs/author-docs-site-publication/requirements.md

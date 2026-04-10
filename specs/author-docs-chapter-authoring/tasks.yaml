@@ -1,0 +1,22 @@
+epic: RAD-006
+title: author-docs-chapter-authoring
+status: active
+owners:
+  - codex
+phases:
+  - id: P1
+    title: chapter-source-authoring
+    goal: beginner-friendly chapter markdown set を作る
+    tasks:
+      - id: RAD-006-T01
+        title: chapter frontmatter contract を定義する
+        status: done
+      - id: RAD-006-T02
+        title: 章本文を chapter split で起草する
+        status: done
+      - id: RAD-006-T03
+        title: 表、リスト、Mermaid、コード例を本文に分散配置する
+        status: done
+      - id: RAD-006-T04
+        title: source trail と beginner guidance を整える
+        status: done

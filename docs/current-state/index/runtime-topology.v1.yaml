@@ -30,8 +30,8 @@ runtimes:
       - Keep spec-first entrypoints discoverable before product code exists
       - Provide a repo-local validation command for future onboarding and maintenance
   - runtime_id: docs-generation-pipeline
-    kind: planned-astro-docs-ingest-generate-publish
-    status: planned
+    kind: astro-docs-author-render-and-publish
+    status: active
     files:
       - specs/author-docs-hub-foundation/design.md
       - specs/author-docs-hub-foundation/requirements.md
@@ -39,17 +39,26 @@ runtimes:
       - docs/adr/ADR-0002-astro-static-site-generator.md
       - docs/adr/ADR-0003-github-pages-publication-target.md
       - specs/author-docs-content-information-architecture/design.md
+      - specs/author-docs-chapter-authoring/design.md
+      - specs/author-docs-site-publication/design.md
       - specs/author-docs-upstream-ingest/design.md
       - specs/author-docs-diagnostics-parity/design.md
       - specs/author-docs-source-map-immutability/design.md
+      - package.json
+      - astro.config.mjs
+      - src/content.config.ts
+      - src/pages/index.astro
+      - src/pages/chapters/[slug].astro
+      - src/pages/sources.astro
+      - src/content/chapters/00-start-here.md
+      - .github/workflows/deploy.yml
       - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
     responsibilities:
-      - Ingest pinned upstream sources from official ReVIEW, TECHZIP evidence, and VS Code diagnostics inputs
-      - Define the content information architecture that turns normalized data into audience-facing page families and navigation
-      - Normalize authority-separated data models for syntax, usage evidence, and policy diagnostics
-      - Generate Markdown, indexes, and provenance maps before publishing Astro-built HTML and derivative artifacts
-      - Validate parity, generated immutability, and source-map completeness before release
+      - Render authored beginner-friendly chapter Markdown as a static Astro site
+      - Provide index, chapter detail, and sources pages for the published docs surface
+      - Initialize Mermaid rendering for chapter diagrams on the client
       - Publish validated static artifacts to GitHub Pages under the irdtechbook account
+      - Leave upstream ingest, parity validation, and source-map automation to future implementation lanes
 
 canonical_paths:
   - path_id: repository-governance-bootstrap
@@ -86,5 +95,5 @@ confidence_and_gaps:
     - specs/author-docs-hub-foundation/design.md
     - scripts/validate_current_state_docs.py
   open_questions:
-    - Which search/index integration and derivative artifact toolchain should sit behind the planned Astro publication runtime?
+    - Which search/index integration and derivative artifact toolchain should sit behind the current Astro publication runtime?
     - Should the GitHub Pages publish workflow promote every main-branch build or release-tag builds only?

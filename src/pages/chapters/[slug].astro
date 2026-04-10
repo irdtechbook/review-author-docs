@@ -1,0 +1,90 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const chapters = (await getCollection("chapters")).sort(
+    (left, right) => left.data.order - right.data.order
+  );
+
+  return chapters.map((entry) => ({
+    params: { slug: entry.id.replace(/\.md$/, "") },
+    props: { entry, chapters }
+  }));
+}
+
+const { entry, chapters } = Astro.props;
+const { Content, headings } = await render(entry);
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
+const currentIndex = chapters.findIndex((item) => item.id === entry.id);
+const previousChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
+const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.summary}>
+  <section class="shell section-spacing chapter-header">
+    <p class="eyebrow">Chapter {String(entry.data.order + 1).padStart(2, "0")}</p>
+    <h1>{entry.data.title}</h1>
+    <p class="chapter-summary">{entry.data.summary}</p>
+    <ul class="tag-list" aria-label="Audience">
+      {entry.data.audience.map((audience) => <li>{audience}</li>)}
+    </ul>
+  </section>
+
+  <section class="shell chapter-layout">
+    <aside class="chapter-aside">
+      <div class="aside-card">
+        <h2>この章の見出し</h2>
+        <ol class="aside-list">
+          {headings
+            .filter((heading) => heading.depth <= 2)
+            .map((heading) => (
+              <li>
+                <a href={`#${heading.slug}`}>{heading.text}</a>
+              </li>
+            ))}
+        </ol>
+      </div>
+      <div class="aside-card">
+        <h2>根拠の種類</h2>
+        <ul class="compact-list">
+          <li>Normative: Re:VIEW 公式 docs</li>
+          <li>Descriptive: author repo 実例</li>
+          <li>Policy: Nextpublishing diagnostics</li>
+        </ul>
+      </div>
+    </aside>
+
+    <article class="chapter-prose">
+      <Content />
+    </article>
+  </section>
+
+  <section class="shell section-spacing chapter-pager">
+    {previousChapter ? (
+      <a class="pager-card" href={chapterPath(previousChapter.id)}>
+        <span>前の章</span>
+        <strong>{previousChapter.data.title}</strong>
+      </a>
+    ) : (
+      <div class="pager-card pager-card-muted">
+        <span>前の章</span>
+        <strong>これが最初の章です</strong>
+      </div>
+    )}
+    {nextChapter ? (
+      <a class="pager-card" href={chapterPath(nextChapter.id)}>
+        <span>次の章</span>
+        <strong>{nextChapter.data.title}</strong>
+      </a>
+    ) : (
+      <div class="pager-card pager-card-muted">
+        <span>次の章</span>
+        <strong>これが最後の章です</strong>
+      </div>
+    )}
+  </section>
+</BaseLayout>

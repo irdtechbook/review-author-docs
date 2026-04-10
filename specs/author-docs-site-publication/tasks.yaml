@@ -1,0 +1,29 @@
+epic: RAD-007
+title: author-docs-site-publication
+status: active
+owners:
+  - codex
+phases:
+  - id: P1
+    title: astro-site-shell
+    goal: Astro static site で章本文を閲覧できるようにする
+    tasks:
+      - id: RAD-007-T01
+        title: Astro project config と package metadata を作る
+        status: done
+      - id: RAD-007-T02
+        title: chapter listing と chapter detail pages を実装する
+        status: done
+      - id: RAD-007-T03
+        title: Mermaid を含む content rendering を整える
+        status: done
+  - id: P2
+    title: github-pages-deployment
+    goal: GitHub Pages project site へ自動 deploy する
+    tasks:
+      - id: RAD-007-T04
+        title: GitHub Actions deploy workflow を追加する
+        status: done
+      - id: RAD-007-T05
+        title: Pages 公開設定と公開 URL を確認する
+        status: in_progress

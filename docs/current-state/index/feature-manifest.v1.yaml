@@ -49,6 +49,12 @@ features:
       - specs/author-docs-diagnostics-parity/requirements.md
       - specs/author-docs-source-map-immutability/requirements.md
       - specs/author-docs-content-information-architecture/requirements.md
+      - specs/author-docs-chapter-authoring/requirements.md
+      - specs/author-docs-site-publication/requirements.md
+      - package.json
+      - astro.config.mjs
+      - src/pages/index.astro
+      - src/pages/chapters/[slug].astro
       - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
     core_units:
       - specs/author-docs-hub-foundation/tasks.yaml
@@ -58,16 +64,22 @@ features:
       - specs/author-docs-diagnostics-parity/tasks.yaml
       - specs/author-docs-source-map-immutability/tasks.yaml
       - specs/author-docs-content-information-architecture/tasks.yaml
+      - specs/author-docs-chapter-authoring/tasks.yaml
+      - specs/author-docs-site-publication/tasks.yaml
+      - src/content/chapters/00-start-here.md
+      - src/pages/index.astro
+      - .github/workflows/deploy.yml
       - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
     parity: docs-contract-and-pipeline-spec
     status: active
-    implementation_state: spec_defined
+    implementation_state: partially_implemented
     confidence: high
     summary: >
       Defines the repository as a derived ReVIEW/Nextpublishing author-docs hub
       with Markdown as canonical source, Astro-backed static HTML as primary
-      delivery, GitHub Pages publication under the irdtechbook account, and
-      planned ingest/content-IA/parity/source-map implementation lanes.
+      delivery, GitHub Pages publication under the irdtechbook account, authored
+      beginner-friendly chapter content, and a partially implemented publication
+      lane while ingest/parity/source-map automation remains pending.
 
 lookup_shortcuts:
   by_primary_runtime:
@@ -82,4 +94,4 @@ coverage_summary:
   known_unmapped_areas:
     - Upstream, parity, and source-map contracts are split into specs but not implemented yet.
     - Derivative artifact build strategy remains undecided beyond HTML-first publication.
-    - Content IA is specified, but concrete page inventory and navigation content are not locked yet.
+    - GitHub Pages runtime confirmation remains pending until deployment completes.

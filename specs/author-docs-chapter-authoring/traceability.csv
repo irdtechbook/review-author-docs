@@ -1,0 +1,6 @@
+req_id,acceptance_criterion,design_ref,task_ids,status,evidence
+RAD-006-AC1,"章ごとの Markdown source に分割する","design.md#chapter-set|design.md#content-shape","RAD-006-T01|RAD-006-T02",done,"src/content/chapters"
+RAD-006-AC2,"初心者向け本文、箇条書き、コード例を含む","design.md#authoring-rules","RAD-006-T02|RAD-006-T03",done,"src/content/chapters"
+RAD-006-AC3,"表と Mermaid 図をサイト全体に含める","design.md#authoring-rules","RAD-006-T03",done,"src/content/chapters"
+RAD-006-AC4,"frontmatter に title, order, summary, audience を持つ","design.md#content-shape","RAD-006-T01",done,"src/content/chapters"
+RAD-006-AC5,"source trail で根拠を辿れる","design.md#evidence-handling","RAD-006-T04",done,"src/content/chapters"

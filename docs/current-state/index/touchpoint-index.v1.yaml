@@ -62,6 +62,8 @@ touchpoints:
       - specs/author-docs-source-map-immutability/design.md
       - specs/author-docs-content-information-architecture/requirements.md
       - specs/author-docs-content-information-architecture/design.md
+      - specs/author-docs-chapter-authoring/requirements.md
+      - specs/author-docs-site-publication/requirements.md
       - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
     concerns:
       - repository responsibility definition
@@ -72,6 +74,38 @@ touchpoints:
       - GitHub Pages publication target
       - implementation lane split
       - content information architecture
+    features:
+      - author-docs-hub-foundation
+  - touchpoint_id: author-docs-content-and-site
+    files:
+      - package.json
+      - package-lock.json
+      - astro.config.mjs
+      - tsconfig.json
+      - src/content.config.ts
+      - src/lib/site-data.ts
+      - src/layouts/BaseLayout.astro
+      - src/pages/index.astro
+      - src/pages/sources.astro
+      - src/pages/chapters/[slug].astro
+      - src/styles/global.css
+      - src/content/chapters/00-start-here.md
+      - src/content/chapters/01-author-repo-overview.md
+      - src/content/chapters/02-review-basics.md
+      - src/content/chapters/03-figures-tables-footnotes.md
+      - src/content/chapters/04-config-and-catalog.md
+      - src/content/chapters/05-nextpublishing-policy.md
+      - src/content/chapters/06-author-workflow.md
+      - src/content/chapters/07-troubleshooting.md
+      - src/content/chapters/08-provenance-and-appendix.md
+      - .github/workflows/deploy.yml
+      - specs/author-docs-chapter-authoring/requirements.md
+      - specs/author-docs-site-publication/requirements.md
+    concerns:
+      - beginner-friendly chapter authoring
+      - Astro static site implementation
+      - GitHub Pages publication workflow
+      - rendered chapter navigation and sources page
     features:
       - author-docs-hub-foundation
 
@@ -88,4 +122,4 @@ confidence_and_gaps:
     - specs/author-docs-hub-foundation/design.md
     - scripts/validate_current_state_docs.py
   open_questions:
-    - Add code-level ingest, parity-validator, and source-map touchpoints once implementation files land under `scripts/` and `site/`.
+    - Add code-level ingest, parity-validator, and source-map touchpoints once those implementation files land.
