@@ -26,4 +26,4 @@ phases:
         status: done
       - id: RAD-007-T05
         title: Pages 公開設定と公開 URL を確認する
-        status: in_progress
+        status: done

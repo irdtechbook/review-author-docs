@@ -94,4 +94,4 @@ coverage_summary:
   known_unmapped_areas:
     - Upstream, parity, and source-map contracts are split into specs but not implemented yet.
     - Derivative artifact build strategy remains undecided beyond HTML-first publication.
-    - GitHub Pages runtime confirmation remains pending until deployment completes.
+    - Upstream ingest, diagnostics parity, and source-map automation are still spec-only lanes.

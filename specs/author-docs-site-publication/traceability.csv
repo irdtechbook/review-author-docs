@@ -4,4 +4,4 @@ RAD-007-AC2,"GitHub Pages 向け site/base が合っている","design.md#implem
 RAD-007-AC3,"index page, chapter page, sources page と章間ナビがある","design.md#site-surface","RAD-007-T02",done,"src/pages"
 RAD-007-AC4,"Mermaid が site 上で描画される","design.md#implementation-notes","RAD-007-T03",done,"src/layouts|src/content/chapters"
 RAD-007-AC5,"GitHub Actions workflow で GitHub Pages deploy する","design.md#implementation-notes","RAD-007-T04",done,".github/workflows/deploy.yml"
-RAD-007-AC6,"GitHub Pages 公開 URL を確認できる","design.md#decision","RAD-007-T05",in_progress,"https://irdtechbook.github.io/review-author-docs/"
+RAD-007-AC6,"GitHub Pages 公開 URL を確認できる","design.md#decision","RAD-007-T05",done,"https://irdtechbook.github.io/review-author-docs/"
