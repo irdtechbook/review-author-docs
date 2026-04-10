@@ -1,0 +1,26 @@
+epic: RAD-004
+title: author-docs-source-map-immutability
+status: active
+owners:
+  - codex
+phases:
+  - id: P1
+    title: provenance-schema
+    goal: generated page metadata と source-map schema を固定する
+    tasks:
+      - id: RAD-004-T01
+        title: generated page metadata contract を定義する
+        status: todo
+      - id: RAD-004-T02
+        title: source-map.v1.json schema を定義する
+        status: todo
+  - id: P2
+    title: publish-gate
+    goal: immutability validation と publish dependency を定義する
+    tasks:
+      - id: RAD-004-T03
+        title: generated immutability rule を定義する
+        status: todo
+      - id: RAD-004-T04
+        title: source-map / immutability gate を publish に接続する
+        status: todo

@@ -1,0 +1,122 @@
+metadata:
+  document_id: review-author-docs-current-state-root-v1
+  version: 1
+  status: active
+  canonical_name: review-author-docs-current-state-root
+  purpose: >
+    Top-level constrained-index-first root for onboarding and future AI sessions in
+    the review-author-docs repository.
+  repository_root: C:/Users/tky99/dev/review-author-docs
+
+mandatory_read_order:
+  - order: 1
+    document: docs/current-state/index/current-state-root.v1.yaml
+    reason: Confirm the canonical read order and constrained-index-first lookup rules.
+  - order: 2
+    document: docs/current-state/index/documentation-system-method.v1.yaml
+    reason: Confirm the feature-detail contract and confidence rules.
+  - order: 3
+    document: docs/current-state/index/feature-manifest.v1.yaml
+    reason: Resolve feature_id to the canonical feature-detail document.
+  - order: 4
+    document: docs/current-state/index/runtime-topology.v1.yaml
+    reason: Resolve runtime path identifiers before interpreting feature runtime_paths.
+  - order: 5
+    document: docs/current-state/index/touchpoint-index.v1.yaml
+    reason: Reverse-map files and concerns back to owning features.
+  - order: 6
+    document: docs/current-state/index/capability-tree.v1.yaml
+    reason: See the high-level capability grouping after the mandatory indexes.
+  - order: 7
+    document: docs/current-state/index/repo-state-classification.v1.yaml
+    reason: Confirm the published onboarding mode and next-action routing.
+  - order: 8
+    document: docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    reason: Read the repository bootstrap and spec-first governance contract first.
+  - order: 9
+    document: docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+    reason: Read the derived author-docs hub contract before adding pipeline or publication work.
+
+lookup_rules:
+  start_from_user_intent:
+    - if_intent: feature ownership or repository governance behavior is known
+      read:
+        - docs/current-state/index/feature-manifest.v1.yaml
+        - docs/current-state/features/<feature_id>/feature-detail.v1.yaml
+    - if_intent: file path or document concern is known
+      read:
+        - docs/current-state/index/touchpoint-index.v1.yaml
+        - docs/current-state/features/<feature_id>/feature-detail.v1.yaml
+    - if_intent: runtime path or execution lane is known
+      read:
+        - docs/current-state/index/runtime-topology.v1.yaml
+        - docs/current-state/features/<feature_id>/feature-detail.v1.yaml
+  canonical_working_unit: feature detail YAML
+  canonical_reverse_lookup_unit: touchpoint index
+  canonical_runtime_lookup_unit: runtime topology
+
+document_sets:
+  root_indexes:
+    required:
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/index/documentation-system-method.v1.yaml
+      - docs/current-state/index/feature-manifest.v1.yaml
+      - docs/current-state/index/runtime-topology.v1.yaml
+      - docs/current-state/index/touchpoint-index.v1.yaml
+      - docs/current-state/index/capability-tree.v1.yaml
+    optional:
+      - docs/current-state/index/repo-state-classification.v1.yaml
+  feature_details:
+    directory: docs/current-state/features
+    naming_rule: <feature_id>/feature-detail.v1.yaml
+  supporting_overviews: []
+
+design_decisions:
+  - decision: publish current-state docs before the first implementation artifact exists
+    reason: Future onboarding should not need to infer whether the repository is still
+      in bootstrap-only mode.
+  - decision: keep a single bootstrap feature as the canonical working unit until
+      functional code appears
+    reason: The repository currently contains governance and spec-first entrypoints,
+      not product code.
+  - decision: treat Markdown as the canonical authoring surface and static HTML as
+      the primary delivery surface
+    reason: Searchability and cross-linking matter more than book-shaped output for
+      the primary user problem.
+  - decision: preserve separate authority classes for official ReVIEW docs, TECHZIP
+      usage evidence, and VS Code diagnostics policy
+    reason: The repository should explain upstream truth, not collapse distinct
+      sources into an undocumented local rule set.
+
+schema_keys_reference:
+  feature_manifest_required_keys:
+    - feature_id
+    - canonical_doc
+    - category
+    - primary_runtime
+    - entrypoints
+    - core_units
+    - parity
+  feature_detail_required_keys:
+    - metadata
+    - purpose
+    - identity
+    - entry_surfaces
+    - implementation_variants
+    - runtime_paths
+    - contracts_and_payloads
+    - touchpoints
+    - state_and_storage
+    - execution_phases
+    - test_and_verification
+    - confidence_and_gaps
+    - related_documents
+
+coverage_summary:
+  generated_by: repository-explanation-creation
+  confidence: high
+  known_gaps:
+    - The docs-generation pipeline is specified but not implemented.
+    - The Astro-based publication path is chosen, but site composition and derivative artifact build scripts are not implemented yet.
+    - The publication target is fixed to GitHub Pages, but deployment workflow and Pages configuration are not implemented yet.
+    - The long-term repo type may change if implementation adds a service, CLI, or UI surface.

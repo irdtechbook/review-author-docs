@@ -1,0 +1,21 @@
+metadata:
+  document_id: review-author-docs-capability-tree-v1
+  version: 1
+  status: active
+  canonical_name: review-author-docs-capability-tree
+  purpose: >
+    Optional capability grouping for constrained-index-first docs.
+  repository_root: C:/Users/tky99/dev/review-author-docs
+
+capabilities:
+  - capability_id: project-foundation
+    summary: >
+      Repository governance, bootstrap documentation, and spec-first execution rules.
+    features:
+      - repository-bootstrap
+  - capability_id: author-documentation-platform
+    summary: >
+      Derived documentation platform for ReVIEW syntax explanation, TECHZIP usage
+      evidence, and Nextpublishing policy guidance.
+    features:
+      - author-docs-hub-foundation

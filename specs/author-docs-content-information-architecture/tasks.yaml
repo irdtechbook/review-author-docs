@@ -1,0 +1,26 @@
+epic: RAD-005
+title: author-docs-content-information-architecture
+status: active
+owners:
+  - codex
+phases:
+  - id: P1
+    title: audience-and-navigation
+    goal: audience journey と top navigation を固定する
+    tasks:
+      - id: RAD-005-T01
+        title: audience segmentation を確定する
+        status: todo
+      - id: RAD-005-T02
+        title: top navigation と landing structure を確定する
+        status: todo
+  - id: P2
+    title: page-family-and-book-mapping
+    goal: page family contract と書籍派生 mapping を固定する
+    tasks:
+      - id: RAD-005-T03
+        title: page family metadata contract を確定する
+        status: todo
+      - id: RAD-005-T04
+        title: site-to-book mapping を確定する
+        status: todo

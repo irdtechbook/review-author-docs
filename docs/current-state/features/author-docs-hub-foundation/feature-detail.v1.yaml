@@ -1,0 +1,175 @@
+metadata:
+  feature_id: author-docs-hub-foundation
+  version: 1
+  status: active
+  implementation_state: spec_defined
+  confidence: high
+purpose:
+  summary: >
+    Foundation feature that fixes the repository responsibility, directory contract,
+    delivery strategy, and generation-pipeline shape for the derived author docs hub.
+  operator_value: >
+    Gives the next AI or maintainer a stable working unit for why this repository
+    exists, which upstreams it depends on, and how future implementation must be
+    structured.
+identity:
+  aliases:
+    - derived-author-docs-hub
+    - review-author-guidance-foundation
+  category: author-documentation-platform
+  owner_area: author-docs-hub
+entry_surfaces:
+  human_reading:
+    - specs/author-docs-hub-foundation/requirements.md
+    - specs/author-docs-hub-foundation/design.md
+    - docs/adr/ADR-0001-derived-author-docs-hub.md
+    - docs/adr/ADR-0002-astro-static-site-generator.md
+    - docs/adr/ADR-0003-github-pages-publication-target.md
+  machine_entrypoints:
+    - specs/author-docs-hub-foundation/tasks.yaml
+    - specs/author-docs-hub-foundation/traceability.csv
+    - specs/author-docs-hub-foundation/worklog.ndjson
+    - specs/author-docs-upstream-ingest/tasks.yaml
+    - specs/author-docs-content-information-architecture/tasks.yaml
+    - specs/author-docs-diagnostics-parity/tasks.yaml
+    - specs/author-docs-source-map-immutability/tasks.yaml
+  validation_commands:
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+implementation_variants:
+  current_mode:
+    description: spec-defined repository contract before ingest/generation implementation exists
+    status: active
+  future_mode:
+    description: Astro-backed generated author-docs pipeline with upstream ingest, normalization, HTML build, and derivative artifact publishing
+    status: planned
+runtime_paths:
+  - repository-governance-bootstrap
+  - docs-generation-pipeline
+contracts_and_payloads:
+  authority_contract:
+    normative_sources:
+      - https://github.com/kmuto/review/blob/master/doc/format.ja.md
+      - https://github.com/kmuto/review/blob/master/doc/quickstart.ja.md
+      - https://github.com/kmuto/review/blob/master/doc/config.yml.sample
+    descriptive_sources:
+      - C:/Users/tky99/dev/technical-fountain-series-support-tool/future/bibliographic-data/scripts/phase0_build_collection_manifest.py
+      - C:/Users/tky99/dev/technical-fountain-series-support-tool/future/bibliographic-data/scripts/phase0_slack_history_repo_evidence_lib.py
+      - C:/Users/tky99/dev/technical-fountain-series-support-tool/future/bibliographic-data/scripts/phase1_authoritative_inventory_ledger_lib.py
+    policy_sources:
+      - C:/Users/tky99/dev/vscode/src/diagnostics/rules/d013_banned_tag.ts
+      - C:/Users/tky99/dev/vscode/techzip/review-nextpreview-diagnostics-dictionary.json
+  delivery_contract:
+    canonical_authoring: Markdown
+    primary_delivery: static HTML
+    supported_derivatives:
+      - PDF/offline bundle
+      - optional ReVIEW book artifact
+  site_generator_contract:
+    selected_generator: Astro
+    selection_record: docs/adr/ADR-0002-astro-static-site-generator.md
+    rationale:
+      - Keep Markdown canonical while supporting route generation from normalized data and generated overlays.
+      - Separate upstream ingest/validation responsibilities from site presentation concerns.
+      - Preserve a fully static HTML delivery surface.
+  publication_contract:
+    target: GitHub Pages project site
+    account: irdtechbook
+    default_url: https://irdtechbook.github.io/review-author-docs/
+    deployment_surface: dist/html
+    deployment_record: docs/adr/ADR-0003-github-pages-publication-target.md
+  directory_contract:
+    authored_docs:
+      - docs/spec
+      - docs/policy
+      - docs/usage
+      - docs/workflows
+      - docs/troubleshooting
+    upstream_data:
+      - data/upstream
+      - data/normalized
+    generated_outputs:
+      - generated/markdown
+      - generated/indexes
+      - generated/source-map
+    publish_outputs:
+      - dist/html
+      - dist/pdf
+      - dist/offline
+      - dist/review-book
+touchpoints:
+  by_change:
+    responsibility_contract:
+      - AGENTS.md
+      - specs/author-docs-hub-foundation/requirements.md
+      - specs/author-docs-hub-foundation/design.md
+      - docs/adr/ADR-0001-derived-author-docs-hub.md
+      - docs/adr/ADR-0002-astro-static-site-generator.md
+      - docs/adr/ADR-0003-github-pages-publication-target.md
+      - specs/author-docs-content-information-architecture/requirements.md
+      - specs/author-docs-upstream-ingest/requirements.md
+      - specs/author-docs-diagnostics-parity/requirements.md
+      - specs/author-docs-source-map-immutability/requirements.md
+    current_state_indexes:
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/index/feature-manifest.v1.yaml
+      - docs/current-state/index/runtime-topology.v1.yaml
+      - docs/current-state/index/touchpoint-index.v1.yaml
+      - docs/current-state/index/capability-tree.v1.yaml
+      - docs/current-state/index/repo-state-classification.v1.yaml
+    feature_detail:
+      - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+state_and_storage:
+  persistent_docs:
+    - specs/author-docs-hub-foundation
+    - docs/adr
+    - docs/current-state/index
+    - docs/current-state/features/author-docs-hub-foundation
+  planned_generated_or_runtime_docs:
+    - data/upstream
+    - data/normalized
+    - generated
+    - site
+    - dist
+execution_phases:
+  - phase_id: foundation-contract
+    summary: responsibility, directory, and pipeline contracts are defined before any generator exists
+  - phase_id: generator-selection
+    summary: Astro is selected as the primary static HTML publication surface for future implementation lanes
+  - phase_id: content-information-architecture
+    summary: future work will define audience journeys, navigation, page families, and site-to-book mapping before site implementation
+  - phase_id: upstream-ingest-contract
+    summary: future work will pin upstream locks and define normalized data schemas
+  - phase_id: diagnostics-parity-contract
+    summary: future work will validate VS Code dictionary and rule implementation parity for policy authority
+  - phase_id: source-map-and-generated-immutability
+    summary: future work will define provenance metadata, source maps, and no-hand-edit validation for generated outputs
+  - phase_id: generation-and-site
+    summary: future work will build the generator, validation lane, and HTML-first publication surface
+test_and_verification:
+  known_checks:
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+  missing_checks:
+    - No docs-generation pipeline validation exists yet.
+    - No upstream parity or source-map completeness checker exists yet.
+confidence_and_gaps:
+  evidence:
+    - AGENTS.md
+    - specs/author-docs-hub-foundation/requirements.md
+    - specs/author-docs-hub-foundation/design.md
+    - docs/adr/ADR-0001-derived-author-docs-hub.md
+  assumptions:
+    - HTML will remain the primary delivery surface even if derivative outputs are later expanded.
+    - This repository should explain and integrate upstream truth, not replace upstream authority.
+    - The initial public delivery target remains the GitHub Pages project site under the irdtechbook account.
+  open_questions:
+    - Should ReVIEW artifact generation be CI-default or release-only?
+    - What is the exact lock granularity for TECHZIP evidence inputs?
+    - Should Astro search/navigation rely on a local prebuilt index or an external search integration?
+    - Should the published site expose Start Here as one page or split it by audience?
+related_documents:
+  - AGENTS.md
+  - specs/author-docs-hub-foundation/requirements.md
+  - specs/author-docs-hub-foundation/design.md
+  - docs/adr/ADR-0001-derived-author-docs-hub.md
+  - docs/adr/ADR-0002-astro-static-site-generator.md
+  - docs/adr/ADR-0003-github-pages-publication-target.md

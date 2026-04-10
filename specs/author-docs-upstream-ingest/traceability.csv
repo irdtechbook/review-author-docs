@@ -1,0 +1,6 @@
+req_id,acceptance_criterion,design_ref,task_ids,status,evidence
+RAD-002-AC1,"upstream-lock schema を定義する","design.md#lock-document-contract","RAD-002-T01",todo,"specs/author-docs-upstream-ingest/design.md"
+RAD-002-AC2,"per-source required fields を定義する","design.md#lock-document-contract","RAD-002-T01|RAD-002-T02",todo,"specs/author-docs-upstream-ingest/design.md"
+RAD-002-AC3,"authority class ごとの source set を定義する","design.md#source-sets","RAD-002-T02",todo,"specs/author-docs-upstream-ingest/design.md"
+RAD-002-AC4,"raw snapshot と normalized target mapping を定義する","design.md#ingest-flow","RAD-002-T03",todo,"specs/author-docs-upstream-ingest/design.md"
+RAD-002-AC5,"refresh / drift policy を定義する","design.md#drift-policy","RAD-002-T04",todo,"specs/author-docs-upstream-ingest/design.md"

@@ -1,0 +1,103 @@
+epic: RAD-001
+title: author-docs-hub-foundation
+status: active
+owners:
+  - codex
+phases:
+  - id: P1
+    title: foundation-contract
+    goal: 責務定義、ディレクトリ設計、生成パイプライン仕様、current-state 接続を固定する
+    tasks:
+      - id: RAD-001-T01
+        title: requirements/design/traceability/worklog を作成する
+        status: done
+        outputs:
+          - specs/author-docs-hub-foundation/requirements.md
+          - specs/author-docs-hub-foundation/design.md
+          - specs/author-docs-hub-foundation/traceability.csv
+          - specs/author-docs-hub-foundation/worklog.ndjson
+      - id: RAD-001-T02
+        title: ADR で repo の派生ドキュメント方針を固定する
+        status: done
+        outputs:
+          - docs/adr/ADR-0001-derived-author-docs-hub.md
+      - id: RAD-001-T03
+        title: current-state に author-docs-hub feature を登録する
+        status: done
+        outputs:
+          - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+          - docs/current-state/index/feature-manifest.v1.yaml
+          - docs/current-state/index/runtime-topology.v1.yaml
+          - docs/current-state/index/touchpoint-index.v1.yaml
+      - id: RAD-001-T04
+        title: 再開ポインタを session handoff に残す
+        status: done
+        outputs:
+          - docs/session_state/session_current.json
+          - docs/session_handoffs/session_handoff_latest.md
+  - id: P1A
+    title: planning-split
+    goal: 次段 implementation lane を独立 spec として固定する
+    tasks:
+      - id: RAD-001-T11
+        title: 次段実装 spec を ingest / diagnostics parity / source-map-immutability に分割する
+        status: done
+        outputs:
+          - specs/author-docs-upstream-ingest/requirements.md
+          - specs/author-docs-upstream-ingest/design.md
+          - specs/author-docs-diagnostics-parity/requirements.md
+          - specs/author-docs-diagnostics-parity/design.md
+          - specs/author-docs-source-map-immutability/requirements.md
+          - specs/author-docs-source-map-immutability/design.md
+  - id: P2
+    title: upstream-ingest-contract
+    goal: upstream lock と ingest script の責務を具体化する
+    tasks:
+      - id: RAD-001-T05
+        title: upstream-lock schema を定義する
+        status: todo
+      - id: RAD-001-T06
+        title: TECHZIP evidence ingest 入力契約を定義する
+        status: todo
+      - id: RAD-001-T07
+        title: VS Code diagnostics parity contract を定義する
+        status: todo
+  - id: P2A
+    title: content-information-architecture
+    goal: 公開サイトと書籍派生物の情報構造、導線、ページ種別、章立て対応を具体化する
+    tasks:
+      - id: RAD-001-T12
+        title: content IA spec を作成する
+        status: done
+        outputs:
+          - specs/author-docs-content-information-architecture/requirements.md
+          - specs/author-docs-content-information-architecture/design.md
+      - id: RAD-001-T13
+        title: primary audience journey と top navigation を定義する
+        status: todo
+      - id: RAD-001-T14
+        title: サイト版と書籍派生版の content mapping を定義する
+        status: todo
+  - id: P3
+    title: generation-and-site
+    goal: generated markdown と static HTML を構築する
+    tasks:
+      - id: RAD-001-T08
+        title: normalized model を設計する
+        status: todo
+      - id: RAD-001-T09
+        title: site generator を選定する
+        status: done
+        outputs:
+          - docs/adr/ADR-0002-astro-static-site-generator.md
+          - specs/author-docs-hub-foundation/design.md
+          - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+      - id: RAD-001-T10
+        title: source-map と generated immutability check を実装する
+        status: todo
+      - id: RAD-001-T15
+        title: GitHub Pages 向け publish contract を定義する
+        status: done
+        outputs:
+          - docs/adr/ADR-0003-github-pages-publication-target.md
+          - specs/author-docs-hub-foundation/design.md

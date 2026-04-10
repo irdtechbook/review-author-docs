@@ -1,0 +1,60 @@
+{
+  "schema_version": "1",
+  "record_type": "session_handoff",
+  "repo_name": "review-author-docs",
+  "repo_root": "C:\\Users\\tky99\\dev\\review-author-docs",
+  "session_id": "session-20260410T171329+0900",
+  "revision": 1,
+  "created_at": "2026-04-10T17:13:29+09:00",
+  "closed_at": "2026-04-10T17:13:29+09:00",
+  "actor": "codex",
+  "skill_name": "03-session-switch-handoff",
+  "summary": "RAD-001 soft-cut: review-author-docs is ready to resume from the foundation spec and move into site-generator selection plus upstream-lock and validation-lane spec work.",
+  "status": "closed",
+  "next_start": [
+    "Open specs/author-docs-hub-foundation/design.md and decide the primary static-site generator.",
+    "Define the upstream-lock schema for official ReVIEW docs, TECHZIP evidence, and VS Code diagnostics inputs.",
+    "Split the next implementation spec into ingest, diagnostics parity, and source-map or generated-immutability lanes."
+  ],
+  "in_progress": [],
+  "blocked": [],
+  "risks": [],
+  "related_files": [],
+  "related_docs": [
+    "docs/session_handoffs/session_portable_latest.md",
+    "docs/session_handoffs/session_portable_2026-04-10_rad-001-soft-cut-review-author-docs-is-ready-to_r1.md"
+  ],
+  "handoff_md": "docs/session_handoffs/session_handoff_2026-04-10_rad-001-soft-cut-review-author-docs-is-ready-to_r1.md",
+  "onboarding_md": ".serena\\onboarding.md",
+  "decision_candidates": [
+    "HTML remains the primary delivery surface; Markdown remains canonical authoring.",
+    "Official ReVIEW, TECHZIP evidence, and VS Code diagnostics stay as separate authority classes."
+  ],
+  "tags": [
+    "session-cutoff",
+    "soft-cut",
+    "restartable"
+  ],
+  "handoff_kind": "soft_cut",
+  "transition_reason": "Prepare an explicit soft-cut so session-restart can resume from a restartable handoff instead of falling back to a generic latest handoff.",
+  "workline_id": "workline-20260410T171329+0900",
+  "segment_index": 1,
+  "current_state_mode": "constrained-index-first",
+  "current_state_quality_gate": "pass",
+  "git_status_summary": {
+    "available": false,
+    "branch_line": "",
+    "dirty": false,
+    "changed_count": 0,
+    "sample_paths": []
+  },
+  "decisions_snapshot": [
+    "HTML remains the primary delivery surface; Markdown remains canonical authoring.",
+    "Official ReVIEW, TECHZIP evidence, and VS Code diagnostics stay as separate authority classes."
+  ],
+  "open_questions_snapshot": [],
+  "resume_prompt": "Use $session-restart to resume workline `workline-20260410T171329+0900` in `C:\\Users\\tky99\\dev\\review-author-docs`.\nContinue the existing task line instead of starting a new one. Prior summary: RAD-001 soft-cut: review-author-docs is ready to resume from the foundation spec and move into site-generator selection plus upstream-lock and validation-lane spec work.\nNext action(s):\n- Open specs/author-docs-hub-foundation/design.md and decide the primary static-site generator.\n- Define the upstream-lock schema for official ReVIEW docs, TECHZIP evidence, and VS Code diagnostics inputs.\n- Split the next implementation spec into ingest, diagnostics parity, and source-map or generated-immutability lanes.\nDecisions to keep fixed:\n- HTML remains the primary delivery surface; Markdown remains canonical authoring.\n- Official ReVIEW, TECHZIP evidence, and VS Code diagnostics stay as separate authority classes.",
+  "portable_handoff_md": "docs/session_handoffs/session_portable_2026-04-10_rad-001-soft-cut-review-author-docs-is-ready-to_r1.md",
+  "_generated_by": "03-session-switch-handoff",
+  "_generated_at": "2026-04-10T17:24:26+09:00"
+}

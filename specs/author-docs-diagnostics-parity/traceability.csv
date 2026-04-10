@@ -1,0 +1,6 @@
+req_id,acceptance_criterion,design_ref,task_ids,status,evidence
+RAD-003-AC1,"dictionary と rule implementation の両方を input にする","design.md#inputs","RAD-003-T01",todo,"specs/author-docs-diagnostics-parity/design.md"
+RAD-003-AC2,"parity model を定義する","design.md#parity-model","RAD-003-T01",todo,"specs/author-docs-diagnostics-parity/design.md"
+RAD-003-AC3,"mismatch categories と exit conditions を定義する","design.md#mismatch-categories","RAD-003-T02",todo,"specs/author-docs-diagnostics-parity/design.md"
+RAD-003-AC4,"publish gate を定義する","design.md#publish-gate","RAD-003-T03|RAD-003-T04",todo,"specs/author-docs-diagnostics-parity/design.md"
+RAD-003-AC5,"demo と validation command を保持する","requirements.md#demo-script","RAD-003-T04",todo,"specs/author-docs-diagnostics-parity/requirements.md"

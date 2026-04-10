@@ -1,0 +1,68 @@
+metadata:
+  document_id: review-author-docs-repo-state-classification-v1
+  version: 1
+  status: active
+  canonical_name: review-author-docs-repo-state-classification
+  provenance: ai-curated
+  last_verified_commit: no-git-repository
+  last_verified_at: 2026-04-10T16:40:00+09:00
+  confidence: high
+  purpose: >
+    Canonical onboarding mode classification and next-action routing for the
+    review-author-docs repository.
+  repository_root: .
+
+classification_policy:
+  owner_phase: onboarding-bootstrap
+  quality_gate_command: python scripts/validate_current_state_docs.py --repo-root . --mode all
+  quality_gate_status: repo_local_wrapper_available
+  guardrails:
+    - repo must resolve to exactly one published mode
+    - healthy must not be published unless the repo-local validation command passes
+    - bootstrap-only repositories may still publish healthy when the current-state set is complete and validated
+
+repo_state_modes:
+  - mode: none
+    detection:
+      - structured current-state docs do not exist
+    route_skill: repository-explanation-creation
+    next_action: generate the initial constrained-index-first current-state docs before normal onboarding
+    transition_target: constrained_index_first_healthy
+  - mode: legacy_three_doc
+    detection:
+      - legacy repo-dictionary three-doc set exists
+      - constrained-index-first mandatory indexes are absent
+    route_skill: 03-session-switch-handoff
+    next_action: execute the legacy-to-constrained-index-first migration flow before normal onboarding
+    transition_target: constrained_index_first_stale
+  - mode: constrained_index_first_stale
+    detection:
+      - constrained-index-first mandatory indexes exist
+      - current-state quality gate fails, is unavailable, or freshness is insufficient
+    route_skill: current-state-recovery-router
+    next_action: rerun the repo-local validator, repair the index or feature-detail set, then resume onboarding
+    transition_target: constrained_index_first_healthy
+  - mode: constrained_index_first_healthy
+    detection:
+      - constrained-index-first mandatory indexes exist
+      - current-state quality gate passes
+    route_skill: repo-onboarding-rules
+    next_action: continue normal onboarding and then resume the active author-docs-hub-foundation spec before implementation
+    transition_target: constrained_index_first_healthy
+
+published_assessment:
+  detected_mode: constrained_index_first_healthy
+  quality_gate_result: repo_local_wrapper_passed
+  blocking_findings: []
+  next_skill: repo-onboarding-rules
+  next_action: continue normal onboarding without recovery detour, then resume author-docs-hub-foundation and define ingest/site implementation specs before coding
+
+related_processes:
+  - skill: repo-onboarding-rules
+    role: entry router for onboarding
+  - skill: current-state-recovery-router
+    role: reusable recovery process for constrained-index-first stale repos
+  - skill: 03-session-switch-handoff
+    role: session lifecycle and legacy migration router
+  - skill: repository-explanation-creation
+    role: bootstrap path if the constrained-index-first set is later rebuilt

@@ -1,0 +1,90 @@
+metadata:
+  document_id: review-author-docs-runtime-topology-v1
+  version: 1
+  status: active
+  canonical_name: review-author-docs-runtime-topology
+  purpose: >
+    Runtime topology for constrained-index-first current-state docs.
+  repository_root: C:/Users/tky99/dev/review-author-docs
+
+runtimes:
+  - runtime_id: repo-governance-docs
+    kind: bootstrap-docs-plus-validator
+    status: active
+    files:
+      - AGENTS.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/index/documentation-system-method.v1.yaml
+      - docs/current-state/index/feature-manifest.v1.yaml
+      - docs/current-state/index/runtime-topology.v1.yaml
+      - docs/current-state/index/touchpoint-index.v1.yaml
+      - docs/current-state/index/capability-tree.v1.yaml
+      - docs/current-state/index/repo-state-classification.v1.yaml
+      - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+      - .serena/onboarding.md
+      - specs/README.md
+      - scripts/validate_current_state_docs.py
+    responsibilities:
+      - Publish the repository bootstrap contract and constrained-index-first lookup docs
+      - Keep spec-first entrypoints discoverable before product code exists
+      - Provide a repo-local validation command for future onboarding and maintenance
+  - runtime_id: docs-generation-pipeline
+    kind: planned-astro-docs-ingest-generate-publish
+    status: planned
+    files:
+      - specs/author-docs-hub-foundation/design.md
+      - specs/author-docs-hub-foundation/requirements.md
+      - docs/adr/ADR-0001-derived-author-docs-hub.md
+      - docs/adr/ADR-0002-astro-static-site-generator.md
+      - docs/adr/ADR-0003-github-pages-publication-target.md
+      - specs/author-docs-content-information-architecture/design.md
+      - specs/author-docs-upstream-ingest/design.md
+      - specs/author-docs-diagnostics-parity/design.md
+      - specs/author-docs-source-map-immutability/design.md
+      - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+    responsibilities:
+      - Ingest pinned upstream sources from official ReVIEW, TECHZIP evidence, and VS Code diagnostics inputs
+      - Define the content information architecture that turns normalized data into audience-facing page families and navigation
+      - Normalize authority-separated data models for syntax, usage evidence, and policy diagnostics
+      - Generate Markdown, indexes, and provenance maps before publishing Astro-built HTML and derivative artifacts
+      - Validate parity, generated immutability, and source-map completeness before release
+      - Publish validated static artifacts to GitHub Pages under the irdtechbook account
+
+canonical_paths:
+  - path_id: repository-governance-bootstrap
+    chain:
+      - repo-governance-docs
+    used_by:
+      - repository-bootstrap
+      - author-docs-hub-foundation
+  - path_id: author-docs-publication
+    chain:
+      - docs-generation-pipeline
+    used_by:
+      - author-docs-hub-foundation
+  - path_id: docs-generation-pipeline
+    chain:
+      - docs-generation-pipeline
+    used_by:
+      - author-docs-hub-foundation
+
+variant_policy:
+  canonical_current_docs: docs/current-state/index + docs/current-state/features
+  retained_supporting_docs: []
+  generated_views:
+    - .serena/onboarding.md
+
+confidence_and_gaps:
+  confidence: high
+  evidence:
+    - AGENTS.md
+    - docs/repository-genesis/repository-init-manifest.v1.yaml
+    - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+    - specs/README.md
+    - specs/author-docs-hub-foundation/design.md
+    - scripts/validate_current_state_docs.py
+  open_questions:
+    - Which search/index integration and derivative artifact toolchain should sit behind the planned Astro publication runtime?
+    - Should the GitHub Pages publish workflow promote every main-branch build or release-tag builds only?

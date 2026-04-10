@@ -1,0 +1,91 @@
+metadata:
+  document_id: review-author-docs-touchpoint-index-v1
+  version: 1
+  status: active
+  canonical_name: review-author-docs-touchpoint-index
+  purpose: >
+    Reverse lookup from file or concern to the owning feature.
+  repository_root: C:/Users/tky99/dev/review-author-docs
+
+touchpoints:
+  - touchpoint_id: repository-bootstrap-governance
+    files:
+      - AGENTS.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+      - .serena/onboarding.md
+    concerns:
+      - repository bootstrap governance
+      - current-state onboarding entrypoint
+    features:
+      - repository-bootstrap
+  - touchpoint_id: spec-first-entrypoint
+    files:
+      - specs/README.md
+      - docs/session_handoffs/session_handoff_template.md
+      - docs/session_handoffs/session_checkpoint_template.md
+      - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    concerns:
+      - spec-first workflow
+      - pre-implementation handoff contract
+    features:
+      - repository-bootstrap
+  - touchpoint_id: current-state-validation
+    files:
+      - scripts/validate_current_state_docs.py
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/index/feature-manifest.v1.yaml
+      - docs/current-state/index/runtime-topology.v1.yaml
+      - docs/current-state/index/touchpoint-index.v1.yaml
+    concerns:
+      - current-state validation
+      - onboarding quality gate
+    features:
+      - repository-bootstrap
+  - touchpoint_id: author-docs-foundation
+    files:
+      - AGENTS.md
+      - specs/author-docs-hub-foundation/requirements.md
+      - specs/author-docs-hub-foundation/design.md
+      - specs/author-docs-hub-foundation/tasks.yaml
+      - specs/author-docs-hub-foundation/traceability.csv
+      - specs/author-docs-hub-foundation/worklog.ndjson
+      - docs/adr/ADR-0001-derived-author-docs-hub.md
+      - docs/adr/ADR-0002-astro-static-site-generator.md
+      - docs/adr/ADR-0003-github-pages-publication-target.md
+      - specs/author-docs-upstream-ingest/requirements.md
+      - specs/author-docs-upstream-ingest/design.md
+      - specs/author-docs-diagnostics-parity/requirements.md
+      - specs/author-docs-diagnostics-parity/design.md
+      - specs/author-docs-source-map-immutability/requirements.md
+      - specs/author-docs-source-map-immutability/design.md
+      - specs/author-docs-content-information-architecture/requirements.md
+      - specs/author-docs-content-information-architecture/design.md
+      - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+    concerns:
+      - repository responsibility definition
+      - directory contract
+      - generation pipeline specification
+      - delivery strategy
+      - Astro generator selection
+      - GitHub Pages publication target
+      - implementation lane split
+      - content information architecture
+    features:
+      - author-docs-hub-foundation
+
+reverse_lookup_notes:
+  - Until product code exists, bootstrap governance owns all published touchpoints in this repository.
+  - The author-docs foundation touchpoint is the canonical resume packet for product-definition work in this repository.
+
+confidence_and_gaps:
+  confidence: high
+  evidence:
+    - AGENTS.md
+    - specs/README.md
+    - specs/author-docs-hub-foundation/requirements.md
+    - specs/author-docs-hub-foundation/design.md
+    - scripts/validate_current_state_docs.py
+  open_questions:
+    - Add code-level ingest, parity-validator, and source-map touchpoints once implementation files land under `scripts/` and `site/`.

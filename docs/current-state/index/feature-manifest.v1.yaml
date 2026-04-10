@@ -1,0 +1,85 @@
+metadata:
+  document_id: review-author-docs-feature-manifest-v1
+  version: 1
+  status: active
+  canonical_name: review-author-docs-feature-manifest
+  purpose: >
+    Feature manifest for constrained-index-first current-state docs.
+  repository_root: C:/Users/tky99/dev/review-author-docs
+
+features:
+  - feature_id: repository-bootstrap
+    canonical_doc: docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    detail_doc: docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    category: project-foundation
+    primary_runtime: repo-governance-docs
+    entrypoints:
+      - AGENTS.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+      - docs/current-state/index/current-state-root.v1.yaml
+      - .serena/onboarding.md
+      - specs/README.md
+      - scripts/validate_current_state_docs.py
+    core_units:
+      - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+      - docs/session_handoffs/session_handoff_template.md
+      - docs/session_handoffs/session_checkpoint_template.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+    parity: docs-and-governance
+    status: active
+    implementation_state: implemented
+    confidence: high
+    summary: >
+      Tracks repository bootstrap, spec-first governance, constrained-index-first
+      current-state publication, and the validation entrypoint that future sessions
+      use before any implementation begins.
+  - feature_id: author-docs-hub-foundation
+    canonical_doc: docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+    detail_doc: docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+    category: author-documentation-platform
+    primary_runtime: docs-generation-pipeline
+    entrypoints:
+      - AGENTS.md
+      - specs/author-docs-hub-foundation/requirements.md
+      - specs/author-docs-hub-foundation/design.md
+      - docs/adr/ADR-0001-derived-author-docs-hub.md
+      - docs/adr/ADR-0002-astro-static-site-generator.md
+      - docs/adr/ADR-0003-github-pages-publication-target.md
+      - specs/author-docs-upstream-ingest/requirements.md
+      - specs/author-docs-diagnostics-parity/requirements.md
+      - specs/author-docs-source-map-immutability/requirements.md
+      - specs/author-docs-content-information-architecture/requirements.md
+      - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+    core_units:
+      - specs/author-docs-hub-foundation/tasks.yaml
+      - specs/author-docs-hub-foundation/traceability.csv
+      - specs/author-docs-hub-foundation/worklog.ndjson
+      - specs/author-docs-upstream-ingest/tasks.yaml
+      - specs/author-docs-diagnostics-parity/tasks.yaml
+      - specs/author-docs-source-map-immutability/tasks.yaml
+      - specs/author-docs-content-information-architecture/tasks.yaml
+      - docs/current-state/features/author-docs-hub-foundation/feature-detail.v1.yaml
+    parity: docs-contract-and-pipeline-spec
+    status: active
+    implementation_state: spec_defined
+    confidence: high
+    summary: >
+      Defines the repository as a derived ReVIEW/Nextpublishing author-docs hub
+      with Markdown as canonical source, Astro-backed static HTML as primary
+      delivery, GitHub Pages publication under the irdtechbook account, and
+      planned ingest/content-IA/parity/source-map implementation lanes.
+
+lookup_shortcuts:
+  by_primary_runtime:
+    repo-governance-docs:
+      - repository-bootstrap
+    docs-generation-pipeline:
+      - author-docs-hub-foundation
+  migrated_from_legacy_docs: []
+
+coverage_summary:
+  confidence: high
+  known_unmapped_areas:
+    - Upstream, parity, and source-map contracts are split into specs but not implemented yet.
+    - Derivative artifact build strategy remains undecided beyond HTML-first publication.
+    - Content IA is specified, but concrete page inventory and navigation content are not locked yet.

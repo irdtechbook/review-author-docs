@@ -1,0 +1,26 @@
+epic: RAD-003
+title: author-docs-diagnostics-parity
+status: active
+owners:
+  - codex
+phases:
+  - id: P1
+    title: parity-model
+    goal: diagnostics parity model と mismatch categories を固定する
+    tasks:
+      - id: RAD-003-T01
+        title: policy parity model を定義する
+        status: todo
+      - id: RAD-003-T02
+        title: mismatch categories と exit conditions を定義する
+        status: todo
+  - id: P2
+    title: checker-gate
+    goal: checker output と publish gate を定義する
+    tasks:
+      - id: RAD-003-T03
+        title: parity report schema を定義する
+        status: todo
+      - id: RAD-003-T04
+        title: publish gate への接続を定義する
+        status: todo

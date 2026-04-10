@@ -1,0 +1,6 @@
+req_id,acceptance_criterion,design_ref,task_ids,status,evidence
+RAD-004-AC1,"generated page metadata を定義する","design.md#generated-page-metadata","RAD-004-T01",todo,"specs/author-docs-source-map-immutability/design.md"
+RAD-004-AC2,"source-map schema を定義する","design.md#source-map-schema","RAD-004-T02",todo,"specs/author-docs-source-map-immutability/design.md"
+RAD-004-AC3,"generated immutability contract を定義する","design.md#generated-immutability-contract","RAD-004-T03",todo,"specs/author-docs-source-map-immutability/design.md"
+RAD-004-AC4,"validation lane responsibilities を定義する","design.md#validation-lane","RAD-004-T03|RAD-004-T04",todo,"specs/author-docs-source-map-immutability/design.md"
+RAD-004-AC5,"publish dependency を定義する","design.md#publish-dependency","RAD-004-T04",todo,"specs/author-docs-source-map-immutability/design.md"

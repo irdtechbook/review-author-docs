@@ -1,0 +1,26 @@
+epic: RAD-002
+title: author-docs-upstream-ingest
+status: active
+owners:
+  - codex
+phases:
+  - id: P1
+    title: lock-schema
+    goal: upstream-lock schema と source inventory を固定する
+    tasks:
+      - id: RAD-002-T01
+        title: upstream-lock.v1.yaml schema を定義する
+        status: todo
+      - id: RAD-002-T02
+        title: source set と pin 粒度を inventory 化する
+        status: todo
+  - id: P2
+    title: ingest-contract
+    goal: raw snapshot placement と refresh policy を定義する
+    tasks:
+      - id: RAD-002-T03
+        title: raw snapshot placement contract を定義する
+        status: todo
+      - id: RAD-002-T04
+        title: refresh / drift detection policy を定義する
+        status: todo

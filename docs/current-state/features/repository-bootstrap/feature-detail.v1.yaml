@@ -1,0 +1,113 @@
+metadata:
+  feature_id: repository-bootstrap
+  version: 1
+  status: active
+  implementation_state: implemented
+  confidence: high
+purpose:
+  summary: >
+    Canonical bootstrap feature for a repository that currently contains governance,
+    current-state docs, and spec-first entrypoints but no product code yet.
+  operator_value: >
+    Gives the next AI or operator a stable place to understand how work should start,
+    how current-state docs are validated, and where the first spec artifacts belong.
+identity:
+  aliases:
+    - project-bootstrap
+    - repository-governance
+  category: project-foundation
+  owner_area: repo-governance
+entry_surfaces:
+  human_reading:
+    - AGENTS.md
+    - docs/current-state/index/current-state-root.v1.yaml
+    - specs/README.md
+  machine_entrypoints:
+    - docs/repository-genesis/repository-init-manifest.v1.yaml
+    - .serena/onboarding.md
+  validation_commands:
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+implementation_variants:
+  current_mode:
+    description: bootstrap-only repository with no application source tree yet
+    status: active
+  future_mode:
+    description: product/runtime-specific features will be split out once code and specs exist
+    status: planned
+runtime_paths:
+  - repository-governance-bootstrap
+contracts_and_payloads:
+  migration_context:
+    initialized_by: repository-init
+    current_state_bootstrapped_by: repository-explanation-creation
+  governance_contracts:
+    read_order:
+      - AGENTS.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+      - docs/current-state/index/current-state-root.v1.yaml
+    spec_first_requirement:
+      - requirements.md
+      - design.md
+      - tasks.yaml
+      - worklog.ndjson
+      - traceability.csv
+touchpoints:
+  by_change:
+    bootstrap_governance:
+      - AGENTS.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+      - .serena/onboarding.md
+    current_state_docs:
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/index/documentation-system-method.v1.yaml
+      - docs/current-state/index/feature-manifest.v1.yaml
+      - docs/current-state/index/runtime-topology.v1.yaml
+      - docs/current-state/index/touchpoint-index.v1.yaml
+      - docs/current-state/index/capability-tree.v1.yaml
+      - docs/current-state/index/repo-state-classification.v1.yaml
+    validation_entrypoint:
+      - scripts/validate_current_state_docs.py
+    session_templates:
+      - docs/session_handoffs/session_handoff_template.md
+      - docs/session_handoffs/session_checkpoint_template.md
+state_and_storage:
+  persistent_docs:
+    - docs/current-state/index
+    - docs/current-state/features/repository-bootstrap
+    - docs/repository-genesis
+    - specs
+  generated_or_session_views:
+    - .serena/onboarding.md
+    - docs/session_state/ledger
+execution_phases:
+  - phase_id: repository-initialization
+    summary: genesis scaffold created the root operating contract and spec-first entrypoints
+  - phase_id: current-state-bootstrap
+    summary: constrained-index-first docs were published for future onboarding
+  - phase_id: pre-implementation
+    summary: wait for the first active spec before adding runtime or product features
+test_and_verification:
+  known_checks:
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+    - python C:/Users/tky99/.codex/skills/repository-init/scripts/scaffold_repository_genesis.py --repo-root . --repo-name review-author-docs --repo-type library --ui-mode na --ui-framework none
+  missing_checks:
+    - No product behavior tests exist yet because the repository contains no implementation code.
+confidence_and_gaps:
+  evidence:
+    - AGENTS.md
+    - docs/repository-genesis/repository-init-manifest.v1.yaml
+    - .serena/onboarding.md
+    - specs/README.md
+    - docs/session_handoffs/session_handoff_template.md
+    - docs/session_handoffs/session_checkpoint_template.md
+  assumptions:
+    - The repository will stay in a spec-first bootstrap state until the first real feature spec is created.
+    - The initial `library` repo-type classification is a neutral placeholder and may be revised later.
+  open_questions:
+    - Should this repository remain documentation-only, or will it later host code and tests?
+    - When the first implementation arrives, which runtime family should replace the current neutral bootstrap runtime?
+related_documents:
+  - AGENTS.md
+  - docs/repository-genesis/repository-init-manifest.v1.yaml
+  - docs/current-state/index/current-state-root.v1.yaml
+  - specs/README.md
