@@ -1,6 +1,6 @@
-export const siteTitle = "Re:VIEW 著者ガイド";
+export const siteTitle = "はじめてのRe:VIEW 技術同人誌商業化ガイド";
 export const siteDescription =
-  "Re:VIEW と Nextpublishing の著者向けに、原稿リポジトリの読み方、基本記法、診断への対処を初心者向けに整理した解説サイト。";
+  "はじめて技術同人誌を商業化する著者向けに、原稿リポジトリの読み方、基本記法、診断への対処を整理した解説サイト。";
 
 export const featuredRoutes = [
   {
@@ -16,7 +16,7 @@ export const featuredRoutes = [
     chapterSlug: "02-review-basics"
   },
   {
-    title: "差し戻しに強くなる",
+    title: "修正のしかたを知る",
     description:
       "Nextpublishing の診断とトラブルシューティングから修正の流れを掴む読み順です。",
     chapterSlug: "05-nextpublishing-policy"
@@ -37,7 +37,7 @@ export const authorityGroups = [
   {
     id: "policy",
     title: "運用ルール",
-    description: "Nextpublishing の診断情報。組版差し戻しや禁止ルールの実務根拠です。"
+    description: "Nextpublishing の診断情報。組版で修正が必要になりやすいルールの実務根拠です。"
   }
 ];
 

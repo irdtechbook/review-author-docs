@@ -7,14 +7,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   : `${import.meta.env.BASE_URL}/`;
 ---
 
-<BaseLayout title="根拠一覧" description="この解説サイトが依拠している根拠の種類と代表的な出典一覧。">
+<BaseLayout title="参考資料" description="この解説サイトで参照している外部資料と内部資料の一覧。">
   <section class="page-hero">
     <img class="page-hero-image" src={heroImages.sources} alt="開いた本とメモ" />
     <div class="shell page-hero-copy">
-      <p class="eyebrow">出典と根拠</p>
-      <h1>このサイトの説明は、何を根拠にしているか。</h1>
+      <p class="eyebrow">参考資料</p>
+      <h1>このガイドで見ている資料</h1>
       <p>
-        公式仕様、著者リポジトリの観測、Nextpublishing の診断情報を分けて保持し、説明文で混線しないようにしています。
+        外部で読める資料にはリンクを付けています。手元で保持している観測資料や診断資料は、名前と役割が分かる形で載せています。
       </p>
       <a class="button-secondary" href={base}>トップに戻る</a>
     </div>

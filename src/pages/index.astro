@@ -27,15 +27,15 @@ const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
       loading="eager"
     />
     <div class="shell hero-copy">
-      <p class="eyebrow">初学者向けガイド</p>
-      <h1>はじめての Re:VIEW 原稿でも、最初の 1 章を書き始められる。</h1>
+      <p class="eyebrow">はじめて書籍化する著者向け</p>
+      <h1>はじめてのRe:VIEW<br />技術同人誌商業化ガイド</h1>
       <p class="hero-text">
-        原稿の置き場所、最小限の `config.yml` と `catalog.yml`、避けたい記法、差し戻しの直し方まで、
-        迷いやすい順にまとめています。書きながらすぐ確認できるように、章ごとに分けて公開しています。
+        はじめて技術同人誌を商業化する著者が、最初の原稿作成から設定、修正、公開確認まで進められるように、
+        迷いやすい順でまとめています。
       </p>
       <div class="hero-actions">
         <a class="button-primary" href={chapterPath(chapters[0].id)}>最初の章へ</a>
-        <a class="button-secondary" href={`${base}sources/`}>根拠を見る</a>
+        <a class="button-secondary" href={`${base}sources/`}>参考資料を見る</a>
       </div>
     </div>
   </section>
@@ -63,7 +63,7 @@ const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
       <article class="info-card">
         <h3>3. NG 記法を先に避ける</h3>
         <p>
-          Nextpublishing 固有の差し戻しは、あとでまとめて直すより先に避けたほうが楽です。よくある NG を先に確認できます。
+          Nextpublishing 固有の修正ポイントは、あとでまとめて直すより先に避けたほうが楽です。よくある NG を先に確認できます。
         </p>
         <a href={chapterPath("05-nextpublishing-policy.md")}>NG 記法を見る</a>
       </article>
