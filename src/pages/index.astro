@@ -118,6 +118,9 @@ const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
         <article class="info-card">
           <h3>{group.title}</h3>
           <p>{group.description}</p>
+          <ul class="compact-list">
+            {group.details.map((detail) => <li>{detail}</li>)}
+          </ul>
         </article>
       ))}
     </div>

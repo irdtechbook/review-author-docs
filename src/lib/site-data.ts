@@ -27,17 +27,35 @@ export const authorityGroups = [
   {
     id: "normative",
     title: "公式仕様",
-    description: "公式 Re:VIEW 文書。構文、設定、基本動作の一次根拠です。"
+    description:
+      "Re:VIEW の書き方そのものを確認するときの根拠です。見出し、段落、文中記法、設定ファイルの基本は、まずここに戻ります。",
+    details: [
+      "この書き方が Re:VIEW として正しいかを見る",
+      "`config.yml` と `catalog.yml` の基本を確かめる",
+      "構文の意味を確認したいときに使う"
+    ]
   },
   {
     id: "descriptive",
     title: "実例観測",
-    description: "著者リポジトリの実例。よくある構成や利用パターンを説明するときの観測根拠です。"
+    description:
+      "著者リポジトリの実例から、ファイル構成、章分割、前書きや付録の置き方を読むための根拠です。",
+    details: [
+      "著者リポジトリの全体像をつかむ",
+      "章の分け方やファイル配置の実例を見る",
+      "よくある進め方を具体的にイメージする"
+    ]
   },
   {
     id: "policy",
     title: "運用ルール",
-    description: "Nextpublishing の診断情報。組版で修正が必要になりやすいルールの実務根拠です。"
+    description:
+      "Nextpublishing で修正になりやすい書き方を確認するときの根拠です。禁止タグ、Mermaid の注意、見出しや表の制約はここを見ます。",
+    details: [
+      "なぜ警告や要修正が出たかを調べる",
+      "何に置き換えればよいかを確認する",
+      "公開前に直しておく点を洗い出す"
+    ]
   }
 ];
 
