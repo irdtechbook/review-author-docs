@@ -110,7 +110,7 @@ export const sourceGroups = [
     title: "Nextpublishing の運用根拠",
     items: [
       {
-        label: "Re:VIEW-NP Viewer (VS Code Extension)",
+        label: "Nextpublishing向け拡張機能",
         href: null,
         note: "WebView プレビュー、Mermaid、数式 preview、診断分類の挙動を確認。"
       },

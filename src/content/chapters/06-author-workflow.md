@@ -39,9 +39,9 @@ audience:
 
 TeX 環境の構築は重く、はじめての著者が最初に抱える作業としては負担が大きすぎます。Nextpublishing 組版を前提にしていても、**著者の手元で最初に必要なのは HTML ビルドが通ること** です。
 
-### VS Code の WebView preview を使う
+### 編集部が提供している VSCode 拡張機能を使う
 
-`dev/vscode` の Re:VIEW preview 拡張は、`config.yml` / `catalog.yml` を見ながら、WebView で紙面に近い確認ができる前提で作られています。執筆中は、まずこの preview で見出し、図表、脚注、Mermaid、数式 preview を確認する流れで十分です。
+編集部が提供しているVSCode拡張機能を活用してください。`config.yml` / `catalog.yml` を見ながら、WebView で紙面に近い確認ができます。執筆中は、まずこの Nextpublishing向け拡張機能で見出し、図表、脚注、Mermaid、数式 preview を確認する流れで十分です。
 
 ### HTML と WebView で確認する順番
 
@@ -75,7 +75,7 @@ flowchart LR
 
 ### Mermaid と数式は preview 前提で見る
 
-`dev/vscode` 側では Mermaid は WebView 上で SVG として描画され、`//texequation` は KaTeX で preview されます。ただし、Mermaid は環境差で見え方が変わることがあるので、複雑な図は作り込みすぎず、数式も短い単位で確認するほうが安全です。
+Nextpublishing向け拡張機能では Mermaid は WebView 上で SVG として描画され、`//texequation` は KaTeX で preview されます。ただし、Mermaid は環境差で見え方が変わることがあるので、複雑な図は作り込みすぎず、数式も短い単位で確認するほうが安全です。
 
 ## 自分で切り分けるときの流れ
 
