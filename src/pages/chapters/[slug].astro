@@ -26,10 +26,10 @@ const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex +
 
 <BaseLayout title={entry.data.title} description={entry.data.summary}>
   <section class="shell section-spacing chapter-header">
-    <p class="eyebrow">Chapter {String(entry.data.order + 1).padStart(2, "0")}</p>
+    <p class="eyebrow">第{String(entry.data.order + 1).padStart(2, "0")}章</p>
     <h1>{entry.data.title}</h1>
     <p class="chapter-summary">{entry.data.summary}</p>
-    <ul class="tag-list" aria-label="Audience">
+    <ul class="tag-list" aria-label="対象読者">
       {entry.data.audience.map((audience) => <li>{audience}</li>)}
     </ul>
   </section>
@@ -51,9 +51,9 @@ const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex +
       <div class="aside-card">
         <h2>根拠の種類</h2>
         <ul class="compact-list">
-          <li>Normative: Re:VIEW 公式 docs</li>
-          <li>Descriptive: author repo 実例</li>
-          <li>Policy: Nextpublishing diagnostics</li>
+          <li>公式仕様: Re:VIEW 公式文書</li>
+          <li>実例観測: 著者リポジトリの実例</li>
+          <li>運用ルール: Nextpublishing の診断情報</li>
         </ul>
       </div>
     </aside>

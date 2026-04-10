@@ -27,8 +27,8 @@ const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
       loading="eager"
     />
     <div class="shell hero-copy">
-      <p class="eyebrow">Beginner-first docs hub</p>
-      <h1>Re:VIEW 原稿 repo で迷う前に、読む順番を決める。</h1>
+      <p class="eyebrow">初学者向けガイド</p>
+      <h1>Re:VIEW 原稿リポジトリで迷う前に、読む順番を決める。</h1>
       <p class="hero-text">
         まず全体像をつかみ、そのあと記法、設定、差し戻し対処へ進む構成です。
         章ごとに分割した本文をそのまま公開しているので、読みながら改善点を詰められます。
@@ -42,7 +42,7 @@ const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
 
   <section class="shell section-spacing route-section">
     <div class="section-heading">
-      <p class="eyebrow">3 routes</p>
+      <p class="eyebrow">3 つの入口</p>
       <h2>いまの目的から入る</h2>
     </div>
     <div class="card-grid">
@@ -58,7 +58,7 @@ const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
 
   <section class="shell section-spacing chapter-section">
     <div class="section-heading">
-      <p class="eyebrow">Chapters</p>
+      <p class="eyebrow">章一覧</p>
       <h2>章ごとに読む</h2>
     </div>
     <div class="chapter-list">
@@ -70,7 +70,7 @@ const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
               <a href={chapterPath(chapter.id)}>{chapter.data.title}</a>
             </h3>
             <p>{chapter.data.summary}</p>
-            <ul class="tag-list" aria-label="Audience">
+            <ul class="tag-list" aria-label="対象読者">
               {chapter.data.audience.map((audience) => <li>{audience}</li>)}
             </ul>
           </div>
@@ -81,7 +81,7 @@ const chapterPath = (id) => `${base}chapters/${id.replace(/\.md$/, "")}/`;
 
   <section class="shell section-spacing authority-section">
     <div class="section-heading">
-      <p class="eyebrow">Authority mix</p>
+      <p class="eyebrow">説明の根拠</p>
       <h2>どの根拠で説明しているか</h2>
     </div>
     <div class="card-grid">

@@ -1,12 +1,12 @@
-export const siteTitle = "Re:VIEW Author Docs";
+export const siteTitle = "Re:VIEW 著者ガイド";
 export const siteDescription =
-  "Re:VIEW と Nextpublishing の著者向けに、原稿 repo の読み方、基本記法、診断対処を初心者向けに整理した docs hub。";
+  "Re:VIEW と Nextpublishing の著者向けに、原稿リポジトリの読み方、基本記法、診断への対処を初心者向けに整理した解説サイト。";
 
 export const featuredRoutes = [
   {
     title: "まず全体をつかむ",
     description:
-      "原稿 repo の構造、catalog.yml の役割、章ファイルの見かたを先に押さえる読み順です。",
+      "原稿リポジトリの構造、catalog.yml の役割、章ファイルの見かたを先に押さえる読み順です。",
     chapterSlug: "01-author-repo-overview"
   },
   {
@@ -18,7 +18,7 @@ export const featuredRoutes = [
   {
     title: "差し戻しに強くなる",
     description:
-      "Nextpublishing diagnostics とトラブルシューティングから修正導線を掴む読み順です。",
+      "Nextpublishing の診断とトラブルシューティングから修正の流れを掴む読み順です。",
     chapterSlug: "05-nextpublishing-policy"
   }
 ];
@@ -26,18 +26,18 @@ export const featuredRoutes = [
 export const authorityGroups = [
   {
     id: "normative",
-    title: "Normative",
+    title: "公式仕様",
     description: "公式 Re:VIEW 文書。構文、設定、基本動作の一次根拠です。"
   },
   {
     id: "descriptive",
-    title: "Descriptive",
-    description: "著者 repo 実例。よくある構成や利用パターンを説明するときの観測根拠です。"
+    title: "実例観測",
+    description: "著者リポジトリの実例。よくある構成や利用パターンを説明するときの観測根拠です。"
   },
   {
     id: "policy",
-    title: "Policy",
-    description: "Nextpublishing diagnostics。組版差し戻しや禁止ルールの実務根拠です。"
+    title: "運用ルール",
+    description: "Nextpublishing の診断情報。組版差し戻しや禁止ルールの実務根拠です。"
   }
 ];
 
@@ -49,59 +49,58 @@ export const heroImages = {
 
 export const sourceGroups = [
   {
-    title: "Official Re:VIEW docs",
+    title: "Re:VIEW 公式文書",
     items: [
       {
         label: "format.ja.md",
         href: "https://raw.githubusercontent.com/kmuto/review/master/doc/format.ja.md",
-        note: "見出し、段落、inline / block、表、図表参照の根拠。"
+        note: "見出し、段落、文中記法、まとまり記法、表、図表参照の根拠。"
       },
       {
         label: "quickstart.ja.md",
         href: "https://raw.githubusercontent.com/kmuto/review/master/doc/quickstart.ja.md",
-        note: "project layout、catalog.yml、build コマンドの根拠。"
+        note: "プロジェクト構成、catalog.yml、ビルドコマンドの根拠。"
       },
       {
         label: "config.yml.sample",
         href: "https://raw.githubusercontent.com/kmuto/review/master/doc/config.yml.sample",
-        note: "config key の初期値と主要設定の根拠。"
+        note: "設定項目の初期値と主要設定の根拠。"
       }
     ]
   },
   {
-    title: "Author repo observations",
+    title: "著者リポジトリの実例",
     items: [
       {
         label: "review-sample",
         href: null,
-        note: "tutorial 型の章進行と前書き、contributors の置き方を観測。"
+        note: "段階学習型の章進行と前書き、貢献者一覧の置き方を観測。"
       },
       {
         label: "review-np-viewer-sample",
         href: null,
-        note: "preface, chapter, appendix, afterword の切り分けを観測。"
+        note: "前書き、本編、付録、あとがきの切り分けを観測。"
       },
       {
         label: "preserved production-like snapshot",
         href: null,
-        note: "overview から deploy variant へ広がる実務型構成を観測。"
+        note: "概要から配置先ごとの説明へ広がる実務向け構成を観測。"
       }
     ]
   },
   {
-    title: "Nextpublishing policy evidence",
+    title: "Nextpublishing の運用根拠",
     items: [
       {
         label: "review-nextpreview-diagnostics-dictionary.json",
         href: null,
-        note: "禁止タグ、Mermaid warning、見出しや表の制約を確認。"
+        note: "禁止タグ、Mermaid の警告、見出しや表の制約を確認。"
       },
       {
         label: "d013_banned_tag.ts",
         href: null,
-        note: "見出し中の禁止 tag など rule 実装側の根拠を確認。"
+        note: "見出し中の禁止タグなど、ルール実装側の根拠を確認。"
       }
     ]
   }
 ];
-
