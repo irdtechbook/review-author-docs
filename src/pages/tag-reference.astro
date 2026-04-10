@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { heroImages, tagReferenceGroups, versionHighlights } from "../lib/site-data";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout
+  title="タグ一覧"
+  description="Re:VIEW の頻出タグを、初心者向けに用途別で引ける一覧です。"
+>
+  <section class="page-hero">
+    <img class="page-hero-image" src={heroImages.sources} alt="開いた本とメモ" />
+    <div class="shell page-hero-copy">
+      <p class="eyebrow">タグ一覧</p>
+      <h1>よく使うタグから引ける一覧</h1>
+      <p>
+        公式フォーマットガイドを土台にしつつ、著者リポジトリでよく出るタグを前に出しています。
+        Nextpublishing で修正になりやすい点も、必要なところだけ添えています。
+      </p>
+      <div class="hero-actions">
+        <a class="button-primary" href={`${base}chapters/02-review-basics/`}>基本の章を見る</a>
+        <a class="button-secondary" href={`${base}sources/`}>根拠一覧を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell section-spacing">
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>まず見る場所</h3>
+        <p>
+          最初は「最初に覚える基本」と「コードと操作手順」だけで十分です。図表や数式は、必要になったときに足します。
+        </p>
+      </article>
+      <article class="info-card">
+        <h3>このページの見方</h3>
+        <p>
+          「タグ」は記号や命令名、「用途」は何に使うか、「著者向けメモ」は最初に守るポイントです。迷ったらメモを先に見てください。
+        </p>
+      </article>
+      <article class="info-card">
+        <h3>版差分の見方</h3>
+        <p>
+          Mermaid は Re:VIEW 5.8 の話です。古い原稿を読むときは、版差分もあわせて確認してください。
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="shell section-spacing">
+    <div class="section-heading">
+      <p class="eyebrow">主要な差分</p>
+      <h2>新機能や挙動差の入口</h2>
+    </div>
+    <div class="card-grid">
+      {versionHighlights.map((item) => (
+        <article class="info-card">
+          <p class="info-card-kicker">{item.version}</p>
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
+          <a href={item.href}>変更点を開く</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell section-spacing source-groups">
+    {tagReferenceGroups.map((group) => (
+      <article class="source-card">
+        <h2>{group.title}</h2>
+        <p class="source-group-summary">{group.description}</p>
+        <div class="reference-table-wrap">
+          <table class="reference-table">
+            <thead>
+              <tr>
+                <th>タグ</th>
+                <th>用途</th>
+                <th>例</th>
+                <th>著者向けメモ</th>
+                <th>根拠</th>
+              </tr>
+            </thead>
+            <tbody>
+              {group.items.map((item) => (
+                <tr>
+                  <td><code>{item.tag.replaceAll("`", "")}</code></td>
+                  <td>{item.purpose}</td>
+                  <td>{item.example}</td>
+                  <td>{item.note}</td>
+                  <td>
+                    <ul class="reference-source-list">
+                      {item.sources.map((source) => (
+                        <li>
+                          {source.href ? <a href={source.href}>{source.label}</a> : source.label}
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

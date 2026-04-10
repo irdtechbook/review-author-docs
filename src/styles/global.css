@@ -188,6 +188,11 @@ pre {
   font-size: 1.9rem;
 }
 
+.section-copy {
+  max-width: 64ch;
+  margin: 10px 0 0;
+}
+
 .card-grid,
 .chapter-list,
 .source-groups {
@@ -220,6 +225,13 @@ pre {
 .info-card h3,
 .source-card h2 {
   margin-top: 0;
+}
+
+.info-card-kicker {
+  margin: 0 0 8px;
+  color: var(--coral);
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .chapter-card {
@@ -390,6 +402,61 @@ pre {
   margin-top: 48px;
 }
 
+.source-group-summary {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.source-item-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.source-availability {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.source-detail-list {
+  margin-top: 10px;
+}
+
+.reference-table-wrap {
+  overflow-x: auto;
+}
+
+.reference-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reference-table th,
+.reference-table td {
+  padding: 12px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.reference-table th {
+  background: #eef7f7;
+}
+
+.reference-table td code {
+  white-space: nowrap;
+}
+
+.reference-source-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.reference-source-list li + li {
+  margin-top: 6px;
+}
+
 .source-list li + li {
   margin-top: 12px;
 }
@@ -432,4 +499,3 @@ pre {
     grid-template-columns: 1fr;
   }
 }
-

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { heroImages, sourceGroups } from "../lib/site-data";
+import { heroImages, sourceGroups, versionHighlights } from "../lib/site-data";
 
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
@@ -14,9 +14,32 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       <p class="eyebrow">参考資料</p>
       <h1>このガイドで見ている資料</h1>
       <p>
-        外部で読める資料にはリンクを付けています。手元で保持している観測資料や診断資料は、名前と役割が分かる形で載せています。
+        外部で読める資料にはリンクを付けています。公開リンクがない項目は、手元の観測資料か、編集部が提供している運用資料です。
       </p>
-      <a class="button-secondary" href={base}>トップに戻る</a>
+      <div class="hero-actions">
+        <a class="button-primary" href={`${base}tag-reference/`}>タグ一覧を見る</a>
+        <a class="button-secondary" href={base}>トップに戻る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell section-spacing">
+    <div class="section-heading">
+      <p class="eyebrow">版差分</p>
+      <h2>どの版の情報かも確認する</h2>
+      <p class="section-copy">
+        タグの使い方は同じでも、版によって追加された機能や微妙な挙動差があります。まずは下の入口から確認できます。
+      </p>
+    </div>
+    <div class="card-grid">
+      {versionHighlights.map((item) => (
+        <article class="info-card">
+          <p class="info-card-kicker">{item.version}</p>
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
+          <a href={item.href}>変更点を開く</a>
+        </article>
+      ))}
     </div>
   </section>
 
@@ -24,11 +47,19 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     {sourceGroups.map((group) => (
       <article class="source-card">
         <h2>{group.title}</h2>
+        <p class="source-group-summary">{group.summary}</p>
         <ul class="source-list">
           {group.items.map((item) => (
             <li>
-              {item.href ? <a href={item.href}>{item.label}</a> : <strong>{item.label}</strong>}
+              <div class="source-item-heading">
+                {item.href ? <a href={item.href}>{item.label}</a> : <strong>{item.label}</strong>}
+                <span class="source-availability">{item.availability}</span>
+              </div>
               <p>{item.note}</p>
+              <ul class="compact-list source-detail-list">
+                <li><strong>使いどころ:</strong> {item.use}</li>
+                <li><strong>確認できること:</strong> {item.coverage}</li>
+              </ul>
             </li>
           ))}
         </ul>
