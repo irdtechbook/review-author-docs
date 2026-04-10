@@ -1,6 +1,6 @@
-export const siteTitle = "はじめてのRe:VIEW 技術同人誌商業化ガイド";
+export const siteTitle = "はじめてのRe:VIEW";
 export const siteDescription =
-  "はじめて技術同人誌を商業化する著者向けに、原稿リポジトリの読み方、基本記法、診断への対処を整理した解説サイト。";
+  "最初の原稿作成から設定、修正、公開確認までを、迷いやすい順で整理した Re:VIEW 入門サイト。";
 
 export const featuredRoutes = [
   {
@@ -91,6 +91,11 @@ export const sourceGroups = [
   {
     title: "Nextpublishing の運用根拠",
     items: [
+      {
+        label: "Re:VIEW-NP Viewer (VS Code Extension)",
+        href: null,
+        note: "WebView プレビュー、Mermaid、数式 preview、診断分類の挙動を確認。"
+      },
       {
         label: "review-nextpreview-diagnostics-dictionary.json",
         href: null,

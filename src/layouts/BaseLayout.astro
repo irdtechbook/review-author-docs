@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+const pageTitle = title && title !== siteTitle ? `${title} | ${siteTitle}` : siteTitle;
 const pageDescription = description ?? siteDescription;
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
@@ -43,7 +43,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     </main>
     <footer class="site-footer">
       <div class="shell footer-inner">
-        <p>{siteTitle} は、はじめて技術同人誌を商業化する著者向けに、公式 Re:VIEW 文書、著者リポジトリ実例、Nextpublishing の診断情報をつなぎ直した解説サイトです。</p>
+        <p>{siteTitle} は、はじめて書籍化する著者向けに、公式 Re:VIEW 文書、著者リポジトリ実例、Nextpublishing の診断情報をつなぎ直した解説サイトです。</p>
       </div>
     </footer>
     <script type="module" is:inline>
